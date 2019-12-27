@@ -7,5 +7,58 @@
         {% endfor%}
     </div>
 
+    <table>
+        {%  if mentor_full_names %}
+        <thead>
+            <tr>
+                <td>First name</td>
+                <td>Last name</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mentor_full_name in mentor_full_names %}
+                <tr>
+                    <td>{{ mentor_full_name.first_name }}</td>
+                    <td>{{ mentor_full_name.last_name }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
+    <table>
+        {%  if mentor_nicknames %}
+        <thead>
+            <tr>
+                <td>Nick name</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mentor_nickname in mentor_nicknames %}
+                <tr>
+                    <td>{{ mentor_nickname.nick_name }}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+        {% endif %}
+    </table>
+
+    <div >
+        {% if applicant_names %}
+            <h2>Applicant name:</h2>
+            {% for applicant_name in applicant_names %}
+                {{ applicant_name.full_name + " " + applicant_name.phone_number }}<br/>
+            {% endfor%}
+        {% endif %}
+    </div>
+
+    <div >
+        {% if applicant_names_by_email %}
+            <h2>Applicant name:</h2>
+            {% for applicant_name_by_email in applicant_names_by_email %}
+                {{ applicant_name_by_email.full_name + " " + applicant_name_by_email.phone_number }}<br/>
+            {% endfor %}
+        {% endif %}
+    </div>
     {% include 'footer.html' %}
 {% endblock %}
